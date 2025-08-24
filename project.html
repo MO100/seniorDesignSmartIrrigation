@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Irrigation • Project</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="System Architecture, WBS & Timeline, Modeling & Standards, and Risks for the Affordable & Smart Irrigation project.">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container navbar" role="navigation" aria-label="Main">
+      <a class="brand" href="index.html">
+        <span class="logo" aria-hidden="true"></span>
+        <div>
+          <div class="title">Affordable & Smart Irrigation</div>
+          <div class="tag">ECE 186A • Spring 2025</div>
+        </div>
+      </a>
+
+      <button class="menu-btn" aria-expanded="false" aria-controls="menu">☰ Menu</button>
+      <nav class="nav-links" id="menu">
+        <a href="index.html">Home</a>
+        <a href="team.html">Team</a>
+
+        <!-- DROPDOWN: Project -->
+        <div class="dropdown">
+          <button class="dropbtn" aria-expanded="false" aria-haspopup="true">
+            Project ▾
+          </button>
+          <div class="submenu" role="menu">
+            <a role="menuitem" href="project.html">Architecture</a>
+            <a role="menuitem" href="#wbs">WBS & Timeline</a>
+            <a role="menuitem" href="#standards">Modeling & Standards</a>
+            <a role="menuitem" href="#risks">Risks</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Slim hero -->
+    <section class="hero hero-slim">
+      <div class="container">
+        <h1>Project Overview</h1>
+        <p class="lead">Architecture, work breakdown, standards, and risk plan—combined on one page.</p>
+      </div>
+    </section>
+
+    <!-- Section tabs (sticky) -->
+    <nav class="section-tabs" aria-label="Section navigation">
+      <div class="container tabs-wrap">
+        <a class="tab" href="#architecture">Architecture</a>
+        <a class="tab" href="#wbs">WBS & Timeline</a>
+        <a class="tab" href="#standards">Modeling & Standards</a>
+        <a class="tab" href="#risks">Risks</a>
+      </div>
+    </nav>
+
+    <!-- ARCHITECTURE -->
+    <section id="architecture" class="section">
+      <div class="container stack">
+        <h2 class="h2">System Architecture</h2>
+        <p class="lead">Sensors → ESP32 control → LoRa → Gateway/UI, with weather API and a lightweight ML scheduler.</p>
+
+        <div class="grid">
+          <article class="card span-6">
+            <h3>Key Components</h3>
+            <ul class="stack">
+              <li>Soil moisture, temperature, and water flow sensors</li>
+              <li>ESP32 microcontroller (control/edge compute)</li>
+              <li>LoRa module for long-range comms</li>
+              <li>Relay & pump actuation (water control)</li>
+              <li>Weather API & timers</li>
+              <li>Battery & power management</li>
+              <li>ML model for irrigation scheduling</li>
+              <li>Web/mobile dashboard</li>
+            </ul>
+          </article>
+
+          <article class="card span-6">
+            <h3>Data Flow</h3>
+            <div class="kv">
+              <div><strong>Sense</strong><span>Collect field conditions</span></div>
+              <div><strong>Decide</strong><span>ML regression → watering duration</span></div>
+              <div><strong>Act</strong><span>ESP32 toggles relay → pump runs</span></div>
+              <div><strong>Report</strong><span>LoRa uplink → gateway → UI</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WBS & TIMELINE -->
+    <section id="wbs" class="section">
+      <div class="container stack">
+        <h2 class="h2">Work Breakdown Structure</h2>
+
+        <div class="grid">
+          <article class="card span-6">
+            <h3>Phase 1 — Project Planning</h3>
+            <ul class="stack">
+              <li>Scope & requirements</li>
+              <li>Budget & risk assessment</li>
+              <li>Timeline & milestones</li>
+            </ul>
+          </article>
+          <article class="card span-6">
+            <h3>Phase 2 — Hardware & Basic SW</h3>
+            <ul class="stack">
+              <li>Sensor/MCU selection & bring-up</li>
+              <li>LoRa integration</li>
+              <li>Relays, pump, power</li>
+              <li>Calibration & firmware</li>
+            </ul>
+          </article>
+
+        <article class="card span-6">
+            <h3>Phase 3 — Advanced SW & ML</h3>
+            <ul class="stack">
+              <li>UI & data logging</li>
+              <li>Weather API & timers</li>
+              <li>Protocol hardening</li>
+              <li>ML integration</li>
+            </ul>
+          </article>
+          <article class="card span-6">
+            <h3>Phase 4 — Integration & Testing</h3>
+            <ul class="stack">
+              <li>System integration</li>
+              <li>Field validation</li>
+              <li>Performance tuning</li>
+            </ul>
+          </article>
+
+          <article class="card span-12">
+            <h3>Phase 5 — Documentation & Reporting</h3>
+            <ul class="stack">
+              <li>Hardware & software docs</li>
+              <li>Final report & handoff</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="spacer"></div>
+        <h3 class="h2">Timeline (Gantt)</h3>
+        <p class="lead">Feb 2025 → Jan 2026</p>
+        <div id="gantt" class="gantt" aria-label="Project timeline"></div>
+      </div>
+    </section>
+
+    <!-- MODELING & STANDARDS -->
+    <section id="standards" class="section">
+      <div class="container stack">
+        <h2 class="h2">Modeling & Engineering Standards</h2>
+
+        <div class="grid">
+          <article class="card span-8">
+            <h3>Modeling Approach</h3>
+            <p>
+              Regression-based ML recommends irrigation windows from inputs
+              (soil moisture, temperature, forecast). Objective: minimize water,
+              stabilize soil moisture, and maintain yield.
+            </p>
+          </article>
+          <article class="card span-4">
+            <h3>Purpose</h3>
+            <p>Data-driven schedules to reduce waste and improve crop outcomes.</p>
+          </article>
+        </div>
+
+        <div class="grid">
+          <article class="card span-4">
+            <h3>IEEE 1451</h3>
+            <p>Smart transducer interfaces for sensor consistency and plug-and-play.</p>
+          </article>
+          <article class="card span-4">
+            <h3>ISO 12100</h3>
+            <p>Machinery safety—applies to enclosures, power, and pump controls.</p>
+          </article>
+          <article class="card span-4">
+            <h3>LoRaWAN Spec</h3>
+            <p>Long-range wireless suited for agricultural deployments.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RISKS -->
+    <section id="risks" class="section">
+      <div class="container stack">
+        <h2 class="h2">Risks & Feasibility</h2>
+
+        <div class="grid">
+          <article class="card span-6">
+            <h3>Technical Feasibility</h3>
+            <ul class="stack">
+              <li>ESP32 firmware & drivers feasible</li>
+              <li>LoRa range acceptable for fields</li>
+              <li>ML small enough for edge/near-edge</li>
+            </ul>
+          </article>
+          <article class="card span-6">
+            <h3>Resource Feasibility</h3>
+            <ul class="stack">
+              <li>Commodity sensors & modules</li>
+              <li>Budget constraints manageable</li>
+              <li>Field power: battery + solar optional</li>
+            </ul>
+          </article>
+
+          <article class="card span-6">
+            <h3>Safety Considerations</h3>
+            <ul class="stack">
+              <li>Water & electronics → IP-rated enclosures</li>
+              <li>Overcurrent protection & grounding</li>
+              <li>Weatherproof connectors & strain relief</li>
+            </ul>
+          </article>
+          <article class="card span-6">
+            <h3>Key Risks</h3>
+            <ul class="stack">
+              <li>Sensor drift/failure → calibration & spares</li>
+              <li>LoRa latency → local safeties/timeouts</li>
+              <li>Power loss → brownout handling</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <small>© 2025 Bulldog Debuggers • Combined project page</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

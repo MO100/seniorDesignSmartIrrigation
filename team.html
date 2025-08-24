@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Irrigation • Team</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container navbar" role="navigation" aria-label="Main">
+      <a class="brand" href="index.html">
+        <span class="logo" aria-hidden="true"></span>
+        <div>
+          <div class="title">Affordable & Smart Irrigation</div>
+          <div class="tag">ECE 186A • Spring 2025</div>
+        </div>
+      </a>
+
+      <button class="menu-btn" aria-expanded="false" aria-controls="menu">☰ Menu</button>
+      <nav class="nav-links" id="menu">
+        <a href="index.html">Home</a>
+        <a href="team.html">Team</a>
+
+        <!-- DROPDOWN: Project (links to anchors on project.html) -->
+        <div class="dropdown">
+          <button class="dropbtn" aria-expanded="false" aria-haspopup="true">
+            Project ▾
+          </button>
+          <div class="submenu" role="menu">
+            <a role="menuitem" href="project.html">Architecture</a>
+            <a role="menuitem" href="project.html#wbs">WBS & Timeline</a>
+            <a role="menuitem" href="project.html#standards">Modeling & Standards</a>
+            <a role="menuitem" href="project.html#risks">Risks</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Team & Responsibilities</h1>
+      <p class="lead">
+        Meet our team and the roles driving an Affordable & Smart Irrigation system.
+      </p>
+      <div class="cta-row">
+        <a class="btn primary" href="project.html#architecture">View Architecture</a>
+        <a class="btn" href="project.html#wbs">See Timeline</a>
+        <a class="btn" href="project.html#standards">Standards</a>
+        <a class="btn" href="project.html#risks">Risk Plan</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="section">
+    <div class="container stack">
+
+      <h2 class="h2">Core Team</h2>
+      <div class="grid">
+
+        <!-- Member 1 -->
+        
+        <article class="card span-4">
+          <img
+            src="assets/team/Miguel.jpeg"
+            alt="Portrait of Miguel Ontiveros"
+            class="team-photo"
+            loading="lazy"
+            width="320" height="320"
+            sizes="(min-width:720px) 160px, 40vw"
+          />
+        <h3>
+            <a href="https://www.linkedin.com/in/miguelo27/" target="_blank" rel="noopener noreferrer">
+                Miguel Ontiveros
+            </a>
+        </h3>
+        <p>Embedded systems, sensor integration, low-level comms.</p>
+        <span class="badge">ESP32 • LoRa • Drivers</span>
+        </article>
+
+        <!-- Member 2 -->
+        <article class="card span-4">
+          <img
+            src="assets/team/Tiffany.jpeg"
+            alt="Portrait of Tiffany Silva"
+            class="team-photo"
+            loading="lazy"
+            width="320" height="320"
+            sizes="(min-width:720px) 160px, 40vw"
+          />
+        <h3>
+            <a href="https://www.linkedin.com/in/tiffanyngocsilva/" target="_blank" rel="noopener noreferrer">
+                Tiffany Silva
+            </a>
+        </h3>
+          <p>Software development, ML, and user interface design.</p>
+          <span class="badge">UI • API • ML</span>
+        </article>
+
+        <!-- Member 3 -->
+        <article class="card span-4">
+          <img
+            src="assets/team/Hector.jpeg"
+            alt="Portrait of Hector Lopez"
+            class="team-photo"
+            loading="lazy"
+            width="320" height="320"
+            sizes="(min-width:720px) 160px, 40vw"
+          />
+        <h3>
+            <a href="https://www.linkedin.com/in/hector-lopez-fernandez-1747261b7/" target="_blank" rel="noopener noreferrer">
+                Hector Lopez
+            </a>
+        </h3>
+          <p>Hardware design, power management, and system-level integration.</p>
+          <span class="badge">Power • Relays • Enclosures</span>
+        </article>
+      </div>
+
+      <div class="spacer"></div>
+
+      <h2 class="h2">Technical Advisors</h2>
+      <div class="grid">
+        <article class="card span-6">
+          <img
+            src="assets/team/Raeisi.jpeg"
+            alt="Portrait of Reza Raeisi"
+            class="advisor-photo"
+            loading="lazy"
+            width="220" height="220"
+            sizes="(min-width:720px) 120px, 40vw"
+          />
+          <h3>Reza Raeisi</h3>
+          <p>ECE Department Chair, Lyles College of Engineering.</p>
+        </article>
+
+        <article class="card span-6">
+          <img
+            src="assets/team/Shawn.jpeg"
+            alt="Portrait of Shawn Ashkan"
+            class="advisor-photo"
+            loading="lazy"
+            width="220" height="220"
+            sizes="(min-width:720px) 120px, 40vw"
+          />
+          <h3>Shawn Ashkan</h3>
+          <p>Agricultural Engineer, Center for Irrigation Technology (CIT).</p>
+        </article>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© 2025 Bulldog Debuggers</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

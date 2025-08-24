@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Irrigation • Home</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Affordable & Smart Irrigation System — Overview and quick links to Architecture, WBS, Standards, and Risks.">
+</head>
+<body>
+  <!-- Header -->
+    <header class="site-header">
+    <div class="container navbar" role="navigation" aria-label="Main">
+        <a class="brand" href="index.html">
+        <span class="logo" aria-hidden="true"></span>
+        <div>
+            <div class="title">Affordable & Smart Irrigation</div>
+            <div class="tag">ECE 186A • Spring 2025</div>
+        </div>
+        </a>
+
+        <button class="menu-btn" aria-expanded="false" aria-controls="menu">☰ Menu</button>
+        <nav class="nav-links" id="menu">
+        <a href="index.html">Home</a>
+        <a href="team.html">Team</a>
+
+        <!-- DROPDOWN: Project (links to anchors on project.html) -->
+        <div class="dropdown">
+            <button class="dropbtn" aria-expanded="false" aria-haspopup="true">
+            Project ▾
+            </button>
+            <div class="submenu" role="menu">
+            <a role="menuitem" href="project.html">Architecture</a>
+            <a role="menuitem" href="project.html#wbs">WBS & Timeline</a>
+            <a role="menuitem" href="project.html#standards">Modeling & Standards</a>
+            <a role="menuitem" href="project.html#risks">Risks</a>
+            </div>
+        </div>
+        </nav>
+    </div>
+    </header>
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1>Affordable & Smart Irrigation System</h1>
+        <p class="lead">
+          Practical precision irrigation for local farmers—low-cost sensors, LoRa connectivity, and a lightweight ML scheduler to optimize watering.
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="project.html">View Architecture</a>
+          <a class="btn" href="project.html#wbs">See Timeline</a>
+          <a class="btn" href="project.html#standards">Standards</a>
+          <a class="btn" href="project.html#risks">Risk Plan</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Highlights -->
+    <section class="section">
+      <div class="container stack">
+        <h2 class="h2">Project Highlights</h2>
+        <div class="grid">
+          <a class="card span-6" href="project.html#architecture" aria-label="Go to Architecture">
+            <h3>System Architecture</h3>
+            <p>ESP32 control, sensors (soil, temp, flow), LoRa links, weather API, ML scheduling, and relay-driven pump.</p>
+          </a>
+          <a class="card span-6" href="project.html#wbs" aria-label="Go to WBS & Timeline">
+            <h3>WBS & Timeline</h3>
+            <p>Five phases from planning to documentation; Gantt overview from Feb 2025 to Jan 2026.</p>
+          </a>
+          <a class="card span-6" href="project.html#standards" aria-label="Go to Modeling & Standards">
+            <h3>Modeling & Standards</h3>
+            <p>Regression-based model for irrigation timing. Key standards: IEEE 1451, ISO 12100, LoRaWAN.</p>
+          </a>
+          <a class="card span-6" href="project.html#risks" aria-label="Go to Risks & Feasibility">
+            <h3>Risks & Feasibility</h3>
+            <p>Technical/resource feasibility, safety considerations, and mitigations for sensor, comms, and power risks.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SMART Objectives (kept from your theme) -->
+    <section class="section">
+      <div class="container stack">
+        <h2 class="h2">SMART Objectives</h2>
+        <div class="grid">
+          <article class="card span-6">
+            <h3>Specific</h3>
+            <p>Deliver an affordable, farmer-friendly smart irrigation system tailored to Fresno-area needs.</p>
+          </article>
+          <article class="card span-6">
+            <h3>Measurable</h3>
+            <p>Reduce water use by 25%, increase yield by 10%, cut labor by 15%, and lower soil moisture variability by 20%.</p>
+          </article>
+          <article class="card span-6">
+            <h3>Achievable</h3>
+            <p>Leverage low-cost sensors, open-source tools, and concise training materials.</p>
+          </article>
+          <article class="card span-6">
+            <h3>Relevant</h3>
+            <p>Targets irrigation inefficiency to save resources, stabilize soil moisture, and support sustainability.</p>
+          </article>
+          <article class="card span-12">
+            <h3>Time-bound</h3>
+            <p>Reach goals within one growing season after deployment.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick CTA -->
+    <section class="section">
+      <div class="container">
+        <div class="grid">
+          <article class="card span-12">
+            <h3>Jump into the Details</h3>
+            <p class="lead">Explore the combined project page for architecture, timeline, standards, and risk planning.</p>
+            <div class="cta-row">
+              <a class="btn primary" href="project.html#architecture">Start with Architecture</a>
+              <a class="btn" href="project.html#wbs">Open the Gantt</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <small>
+        © 2025 Bulldog Debuggers • Content adapted from course slides.
+        <br>Fonts: Oswald (titles) & Open Sans (body).
+      </small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

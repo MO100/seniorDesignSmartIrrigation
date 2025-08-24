@@ -1,0 +1,323 @@
+/* =========================================================
+   Smart Irrigation — styles.css (FULL)
+   Theme: Fresno red, clean cards, sticky navs
+   ========================================================= */
+
+/* ---------- Base / Reset ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; scroll-behavior: smooth; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Theme ---------- */
+:root{
+  --brand:#C41230;            /* Fresno red */
+  --brand-dark:#8f0e23;
+  --ink:#0f172a;              /* slate-900 */
+  --muted:#475569;            /* slate-600 */
+  --bg:#ffffff;
+  --bg-alt:#f8fafc;           /* slate-50 */
+  --card:#ffffff;
+  --ring:rgba(196,18,48,.25);
+  --radius:16px;
+  --shadow: 0 8px 24px rgba(2,6,23,.08);
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --ink:#e2e8f0;
+    --muted:#94a3b8;
+    --bg:#0b1220;
+    --bg-alt:#0f172a;
+    --card:#0b1220;
+    --shadow: 0 8px 24px rgba(0,0,0,.45);
+  }
+}
+body{
+    font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    padding-top: 70px; /* adjust ~header height */
+}
+.container{ width: min(1100px, 92vw); margin: 0 auto; }
+
+/* =========================================================
+   Header / Global Nav
+   ========================================================= */
+.site-header{
+  position: fixed;   /* instead of sticky */
+  top: 0; left: 0; right: 0;
+  z-index: 100;      /* higher than tabs */
+  background: var(--card);
+  box-shadow: 0 2px 0 rgba(15,23,42,.06);
+}
+
+.navbar{
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 0;
+}
+.brand{
+  display: flex; align-items: center; gap: 12px;
+  font-family: "Oswald", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-weight: 600; letter-spacing: .5px;
+}
+.brand .logo{
+  width: 40px; height: 40px; border-radius: 8px;
+  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+}
+.brand .title{ font-size: 1.1rem; }
+.brand .tag{ font-size: .8rem; color: var(--muted); font-weight: 400; }
+
+.nav-links{
+  display: flex; gap: 14px; align-items: center;
+}
+.nav-links a{
+  padding: 8px 12px; border-radius: 10px; color: var(--muted);
+}
+.nav-links a.active, .nav-links a:hover{
+  color: var(--brand); background: rgba(196,18,48,.06);
+}
+
+/* ---------- Mobile menu ---------- */
+.menu-btn{
+  display: none; border: 1px solid rgba(148,163,184,.35);
+  padding: 8px 12px; border-radius: 10px; background: transparent; color: var(--ink);
+}
+@media (max-width: 860px){
+  .menu-btn{ display: inline-flex; align-items: center; gap: 8px; }
+  .nav-links{
+    position: fixed; inset: 64px 0 auto 0; background: var(--card);
+    box-shadow: var(--shadow); padding: 12px; display: grid; gap: 6px;
+    transform: translateY(-16px); opacity: 0; pointer-events: none; transition: .25s ease;
+  }
+  .nav-links.open{ transform: translateY(0); opacity: 1; pointer-events: auto; }
+}
+
+/* =========================================================
+   Dropdown (Project menu)
+   ========================================================= */
+.dropdown{ position: relative; }
+.dropbtn{
+  padding: 8px 12px; border-radius: 10px; background: transparent;
+  border: 1px solid rgba(148,163,184,.35);
+  color: var(--ink); cursor: pointer;
+}
+.dropbtn:hover, .dropbtn[aria-expanded="true"]{
+  color: var(--brand); background: rgba(196,18,48,.06); border-color: transparent;
+}
+.submenu{
+  position: absolute; top: 110%; right: 0;
+  min-width: 220px; display: none; z-index: 60;
+  background: var(--card); border: 1px solid rgba(148,163,184,.25);
+  border-radius: 12px; box-shadow: var(--shadow); padding: 8px;
+}
+.submenu a{
+  display: block; padding: 8px 10px; border-radius: 8px; color: var(--muted);
+}
+.submenu a:hover{ background: rgba(196,18,48,.06); color: var(--brand); }
+
+/* Show on hover (desktop) */
+@media (hover:hover){
+  .dropdown:hover > .submenu{ display: block; }
+}
+
+/* Mobile: expand inside the slide-down menu */
+@media (max-width: 860px){
+  .dropdown{ width: 100%; }
+  .dropbtn{ width: 100%; text-align: left; }
+  .submenu{
+    position: static; display: none; box-shadow: none; border-radius: 10px;
+    border: 1px dashed rgba(148,163,184,.35); margin-top: 6px;
+  }
+  .dropdown.open .submenu{ display: block; }
+}
+
+/* =========================================================
+   Hero
+   ========================================================= */
+.hero{
+  background: linear-gradient(180deg, rgba(196,18,48,.08), transparent);
+  padding: clamp(24px, 4vw, 56px) 0 24px;
+}
+.hero-slim{ padding: clamp(18px, 3vw, 40px) 0 18px; }
+.hero h1{
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  line-height: 1.12;
+}
+.hero p{ color: var(--muted); margin-top: 10px; max-width: 65ch; }
+.btn{
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 14px; border-radius: 12px; font-weight: 600;
+  border: 1px solid rgba(148,163,184,.35);
+  background: var(--card);
+}
+.btn.primary{ background: var(--brand); color: white; border-color: transparent; }
+.btn:focus{ outline: 3px solid var(--ring); outline-offset: 2px; }
+
+/* =========================================================
+   Local Section Tabs (sticky)
+   ========================================================= */
+.section-tabs{
+  position: sticky; top: 64px; z-index: 40;
+  background: var(--bg);
+  border-bottom: 1px solid rgba(148,163,184,.2);
+}
+.tabs-wrap{ display: flex; gap: 10px; overflow: auto; padding: 10px 0; }
+.tab{
+  white-space: nowrap; padding: 8px 12px; border-radius: 999px;
+  border: 1px solid rgba(148,163,184,.35); color: var(--muted);
+}
+.tab.active, .tab:hover{ color: var(--brand); background: rgba(196,18,48,.06); }
+
+
+/* =========================================================
+   Cards / Grid / Info blocks
+   ========================================================= */
+.grid{
+  display: grid; gap: 18px;
+  grid-template-columns: repeat(12, 1fr);
+}
+.card{
+  grid-column: span 12;
+  background: var(--card);
+  border: 1px solid rgba(148,163,184,.2);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+.card h3{ font-family: "Oswald", sans-serif; margin-bottom: 8px; }
+.card p{ color: var(--muted); }
+
+@media (min-width: 720px){
+  .span-4{ grid-column: span 4; }
+  .span-6{ grid-column: span 6; }
+  .span-8{ grid-column: span 8; }
+  .span-12{ grid-column: span 12; }
+}
+
+.kv{ display: grid; gap: 6px; }
+.kv div{ display: grid; grid-template-columns: 180px 1fr; gap: 10px; }
+.badge{
+  display: inline-block; padding: 2px 8px; border-radius: 999px;
+  font-size: .75rem; border: 1px solid rgba(148,163,184,.35); color: var(--muted);
+}
+
+/* =========================================================
+   Gantt (simple visual timeline)
+   ========================================================= */
+.gantt{
+  border: 1px solid rgba(148,163,184,.25);
+  border-radius: var(--radius); overflow: hidden;
+}
+.gantt .row{ display: grid; grid-template-columns: 160px 1fr; }
+.gantt .row + .row{ border-top: 1px dashed rgba(148,163,184,.25); }
+.gantt .label{ padding: 12px; font-weight: 600; background: var(--bg-alt); }
+.gantt .bars{ position: relative; height: 42px; }
+.gantt .bar{
+  position: absolute; top: 6px; height: 30px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+  opacity: .9;
+}
+
+/* =========================================================
+   Sections / Footer / Utilities
+   ========================================================= */
+.section{ padding: 28px 0; }
+.h2{
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+  margin-bottom: 12px;
+}
+.lead{ color: var(--muted); max-width: 70ch; }
+.stack{ display: grid; gap: 12px; }
+.spacer{ height: 16px; }
+
+.site-footer{
+  margin-top: 48px; padding: 22px 0; color: var(--muted);
+  border-top: 1px solid rgba(148,163,184,.25);
+  text-align: center;
+}
+.site-footer a{ color: var(--brand); }
+
+/* Team & Advisor photos */
+.team-photo{
+  width: 100%;
+  max-width: 160px;
+  height: 160px;
+  margin: 0 auto 12px;
+  display: block;
+  object-fit: cover;
+  border-radius: 50%;
+  /* subtle ring to match theme */
+  box-shadow: 0 0 0 3px rgba(196,18,48,.08);
+  border: 1px solid rgba(148,163,184,.25);
+}
+
+.advisor-photo{
+  width: 100%;
+  max-width: 120px;
+  height: 120px;
+  margin: 0 auto 10px;
+  display: block;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(196,18,48,.08);
+  border: 1px solid rgba(148,163,184,.25);
+}
+
+/* tasteful hover lift */
+.card:hover .team-photo,
+.card:hover .advisor-photo{
+  transform: translateY(-2px);
+  transition: transform .18s ease;
+}
+
+/* ===== Global readability upgrades for ALL cards ===== */
+
+/* Consistent spacing between cards everywhere */
+.section .grid{
+  gap: 24px;                 /* was 18px */
+}
+
+/* Slightly roomier cards */
+.card{
+  padding: 20px 22px;        /* was 18px */
+}
+
+/* Clearer heading separation inside cards */
+.card h3{
+  margin-bottom: 10px;
+}
+
+/* Easier reading for paragraphs */
+.card p{
+  line-height: 1.7;
+}
+
+/* Better bullets in lists used across pages (WBS, Risks, etc.) */
+.card ul.stack{
+  gap: 10px;                 /* space between bullet items */
+  margin-left: 1.1rem;       /* indent bullets for scanability */
+}
+.card ul.stack li{
+  line-height: 1.7;          /* comfy multi-line bullets */
+}
+.card ul.stack li::marker{
+  color: var(--brand-dark);  /* subtle themed bullets */
+}
+
+/* Optional: cap super-wide full-width cards (e.g., span-12 notes)
+   Uncomment if you want long-text cards centered with shorter line length.
+.card.span-12{
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+*/
+
+
+/* =========================================================
+   End of file
+   ========================================================= */
